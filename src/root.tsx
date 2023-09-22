@@ -1,4 +1,4 @@
-import { type Signal, component$, createContextId, useSignal, useContextProvider, useStore, $ } from "@builder.io/qwik";
+import { type Signal, component$, createContextId, useSignal, useContextProvider, useStore, $, type QRL } from "@builder.io/qwik";
 import {
   QwikCityProvider,
   RouterOutlet,
@@ -19,8 +19,8 @@ type Book = {
 type ReadListContextType = {
   isToggleOpen: Signal<boolean>;
   bookStore: BooksStoreType;
-  onAddBook: (book: Book) => void;
-  onRemoveBook: (book: Book) => void;
+  onAddBook: QRL<(book: Book) => void>;
+  onRemoveBook: QRL<(book: Book) => void>;
 }
 
 type BooksStoreType = {
